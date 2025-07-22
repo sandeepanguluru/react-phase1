@@ -119,7 +119,7 @@ const FormikForm = () => {
                 fullWidth
                 label="Full Name"
                 name="fullName"
-                {...formik.getFieldProps("fullName")}
+                {...formik.getFieldProps("fullName")} //value,onChange,onBlur
                 error={
                   formik.touched.fullName && Boolean(formik.errors.fullName)
                 }

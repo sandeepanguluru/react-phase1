@@ -14,13 +14,14 @@ import {
 import { useNavigate } from "react-router-dom";
 import { IconButton, Menu, MenuItem, Tooltip } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useAuth } from "../../context/AuthContext";
 
 const StudentDashboard = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
-
+  const { logout } = useAuth();
   const handleMenuOpen = (event, id) => {
     setAnchorEl(event.currentTarget);
     setSelectedId(id);
@@ -143,6 +144,11 @@ const StudentDashboard = () => {
           disabled={userData.length === 0}
         >
           Clear All Data
+        </Button>
+      </Box>
+      <Box sx={{ mt: 3 }}>
+        <Button variant="contained" fullWidth onClick={() => logout()}>
+          Logout
         </Button>
       </Box>
     </Box>
