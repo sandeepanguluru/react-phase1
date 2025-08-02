@@ -26,8 +26,11 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { useLocation } from "react-router-dom";
+import useFormStorage from "../../hooks/useFormStorage";
 
 const RegisterForm = () => {
+  const { students, addStudent, updateStudent, deleteStudent } =
+    useFormStorage();
   const navigate = useNavigate();
   const location = useLocation();
   const editData = location.state; // This comes from navigate('/edit', { state: data })
